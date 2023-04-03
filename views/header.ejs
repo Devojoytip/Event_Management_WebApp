@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm  navbar-dark navcolor" style="background-color: black;">
+    <div class="container-fluid navcolor" style="background-color: black;">
+        <a class="navbar-brand" href="#">
+            <span class="text">Eventosh</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <% if (locals.user){ %>
+            <ul>
+                <a href="/users/book-your-events"><button class="btn btn-outline-success my-2 my-sm-0">Book events</button>
+                </a>
+
+                <a href="/users/logout">
+                    <button class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+                </a>
+            </ul>
+
+            <% }else{ %>
+                <ul>
+                    <a href="/users/login">
+                        <!-- <button class="btn btn-outline-success my-2 my-sm-0">Login</button> -->
+                        <button class="btn btn-outline-success my-2 my-sm-0">Login</button>
+                    </a>
+                    <a href="/users/sign-up">
+                        <!-- <button class="btn btn-outline-success my-2 my-sm-0">Sign
+                            Up</button> -->
+                        <button class="btn btn-outline-success my-2 my-sm-0">Sign Up</button>
+                    </a>
+                </ul>
+                <% } %>
+    </div>
+    
+</nav>

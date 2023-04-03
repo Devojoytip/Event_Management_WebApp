@@ -1,0 +1,24 @@
+<div class="my-3 container-div" style="height: 750px;">
+    <div class="form-div">
+        <h1 style="font-weight: bold; margin: 2rem;">
+            Add Manager
+        </h1>
+        <form action="/admins/create-manager" method="post">
+            <input class="my-4" type="text" name="manager_name" id="manager_name" required placeholder="Enter Manager Name">
+            <br>
+            <input class="my-4" type="email" name="email" id="email" required placeholder="Enter Manager Email">
+            <br>
+            <input class="my-4" type="text" name="manager_phone" id="manager_phone" required placeholder="Enter Manager Phone No.">
+            <br>
+            <input class="my-4" type="password" name="password" id="password" required placeholder="Enter Password">
+            <br>
+            <button type="submit" class="my-3 btn btn-success">Create Manager</button>
+        </form>
+    </div>
+
+    <div class="img-div">
+        <div style="position: relative; margin: auto; width: 80%; top: 10%;">
+            <img src="\images\m.png" alt="" style="width: 100%; height: 50%;" >
+        </div>            
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/contact.css">
+    <!-- <link rel="icon" href="Icons/title.png" type="image/png"> -->
+    <link rel="stylesheet" href="/css/intro.css">
+    <link rel='stylesheet' href='/css/https://codepen.io/P1N2O/pen/xxbjYqx.css'><link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Contact</title>
+</head>
+
+<body class="">
+    <h1 class="heading">Register your Event</h1>
+    <div class="container">
+        <form action="/events/register-event" method="post" id="contactForm">
+            <h6>*Name:</h6>
+            <!-- <input type="text" name="name" id="name" placeholder="Enter your name" required> -->
+            <input type="text" name="name" id="name" value="<%= clientname %>" readonly>
+            <h6>*Mobile No.:</h6>
+            <input type="text" name="mobile" id="mobile" placeholder="Enter your mobile number" required>
+            <h6>*Email:</h6>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            <h6>*Event:</h6>
+            <input type="text" id="eventname" name="eventname" value="<%= eventinfo %>" readonly>
+            <h6>*Date:</h6>
+            <input type="date" id="date" name="date" min="03-04-2023" required>
+            <h6>*Location:</h6>
+            <input type="text" name="location" id="location" placeholder="Enter party destination" required>
+            <h6>*No of Guests:</h6>
+            <input type="number" id="count" name="count" placeholder="Enter no of guests" onchange="calculateCost()" required>
+            <h6>Select Package</h6>
+            <select name="package" id="package" onchange="calculateCost()" required>
+                <option value="select" selected>----Select an option----</option>
+                <option value="silver">Silver</option>
+                <option value="gold">Gold</option>
+                <option value="platinum">Platinum</option>
+            </select>
+            <br>
+            <br>
+            <!-- <h6>Customise the event?</h6>
+            <h6>Write about features to be included</h6> -->
+            <textarea name="content" id="content" cols="30" rows="10"
+                placeholder="Write about features to be included" required>
+            </textarea>
+            <br>
+            <!-- <h6 style="color: aliceblue;">*Cost:</h6> -->
+            <input type="text" id="cost" name="cost" readonly placeholder="Cost">
+            <br>
+            <br>
+            <button type="submit" id="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    <footer class="footer" style="width: 100%;">
+        <div class="copy">&copy; 2022 Developer</div>
+        <div class="bottom-links">
+          <div class="links">
+            <span>More Info</span>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="links">
+            <span>Social Links</span>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./server.js"></script> -->
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+
+    <script>
+        // get the form elements
+        const numGuests = document.getElementById("count");
+        const package = document.getElementById("package");
+        const cost = document.getElementById("cost");
+
+        // calculate the cost when the form is submitted or values are changed
+        function calculateCost() {
+            // get the selected item type value
+            const packageValue = package.value;
+            let itemCost = 0;
+
+            // calculate the cost based on the selected item type
+            if (packageValue === "silver") {
+                itemCost = 1000;
+            } else if (packageValue === "gold") {
+                itemCost = 5000;
+            } else if (packageValue === "platinum") {
+                itemCost = 10000;
+            }
+
+            // calculate the total cost
+            const totalCost = numGuests.value * itemCost;
+
+            // set the cost field value
+            cost.value = totalCost;
+        }
+
+        // add event listeners to the form elements
+        numGuests.addEventListener("input", calculateCost);
+        package.addEventListener("input", calculateCost);
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+    <!-- partial -->
+      <script  src="./script.js"></script>
+</body>
+
+</html>

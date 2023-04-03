@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("Images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.logo{
+    padding: 3px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#back{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Montserrat', 'Open Sans', 'sans-serif';
+    padding: 10px;
+    margin: 5px;
+    background-color: darkblue;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+#encompass-logo{
+    width: 200px;
+    height: 80px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#contactForm{
+    width: 50%;
+    background-color: #fff;
+    border: 2px solid darkblue;
+    box-shadow: 0 30px 30px 0 rgba(0,0,0,0.2);
+    padding: 1px 25px 1px 25px;
+}
+
+@media screen and (max-width: 768px){
+    #encompass-logo{
+        width: 150px;
+        height: 60px;
+    }
+
+    #contactForm{
+        width: 90%;
+    }
+
+    .buttons{
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .button{
+        width: 60%;
+    }
+}
+
+#contactForm h6{
+    /* text-align: center; */
+    font-size: 15px;
+    color: darkblue;
+    /* margin-bottom: 20px; */
+}
+
+.form-element{
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    width: 100%;
+}
+
+.phone{
+    display: flex;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+}
+
+.button{
+    margin: 0px 3px 5px 3px;
+    padding: 8px;
+    background-color: darkblue;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Montserrat', 'Open Sans', 'sans-serif';
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.red{
+    color: red;
+}

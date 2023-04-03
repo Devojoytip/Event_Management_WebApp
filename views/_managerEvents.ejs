@@ -1,0 +1,43 @@
+
+<div class="card my-lg-3 mx-3" style="width: 18rem;">
+    <div class="card-body flex-fill mb-3">
+        <h6 class="card-subtitle mb-2 text-muted">Booked on <%= element.createdAt.toString().slice(0,15) %>
+        </h6>
+        <h5 class="card-title">
+            <%= element.eventname %>
+        </h5>
+        <p class="card-text">
+            <%= element.date %>
+        </p>
+        <h5 class="card-title">
+            <%= element.location %>
+        </h5>
+        <p class="card-text">
+            <%= element.count %> Guests
+        </p>
+        <h5 class="card-title">
+            Rs. <%= element.cost %>
+        </h5>
+        <p class="card-text">
+            <%= element.content %>
+        </p>
+        <h5 class="card-title">
+            <%  if (!element.status) { %>
+                Status: Not completed
+            <%  }else { %>
+                Status: Completed
+            <% } %>
+        </h5>
+        <h5 class="card-title">
+            Manager : <%= element.manager %>
+        </h5>
+
+        <form id="edit-event-form" action="/managers/events-update/<%= element.id %>" method="post">
+            
+            <input type="radio" id="status" name="status" value="completed">
+            <label for="status">Completed?</label><br>
+            <br>
+            <button class="btn btn-primary my-3" type="submit">Save Changes</button>
+        </form>
+    </div>
+    </div>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel='stylesheet' href='/css/https://codepen.io/P1N2O/pen/xxbjYqx.css'><link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+  <% let showUpdateBtn=true; %>
+    <% let showLastUpdated=false; %>
+      <%- include('admin_header'); %>
+
+        <% if(locals.user) {%>
+          <%- include('adminIntro',{title: 'Login Page' , user:user,showUpdateBtn,showLastUpdated}); %>
+            <% showUpdateBtn=true; %>
+              <% showLastUpdated=true; %>
+
+              <div style="position: relative; left: 40%; top: 50px; height: 400px; width: 300px;"> 
+                <img style="height: 300px;"  src="\images\admin2.jpg" alt="" srcset="">
+              </div>
+              <%- include('_managerAddRemove') %>
+
+              <div class="main-div" style="width: 100%;">
+
+                <div class="" style="position: relative; top: 30%; left:10%; background-color: rgb(250, 251, 251); height: 100%; width: 80%;">
+                  <h1>All Managers</h1>
+
+                  <div id="toys-container"
+                    class="d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                    <% managersList.forEach(element=> { %>
+                      <%- include('_managersList',{element}) %>
+                        <% }) %>
+                    </div>
+                
+                        </div>
+
+              </div>
+              <br>
+              <br>
+
+              
+              
+              <div style="width: 100%;">
+                
+                <div class="" style="position: relative; top: 30%; left:10%; background-color: bisque; height: 100%; width: 80%;">
+                  <h1>Pending Events</h1>
+
+                  <div id="toys-container"
+                    class="d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                    <% eventsList.forEach(element=> { %>
+                      <% if (!element.status) { %>
+                        <%- include('_registeredEvents',{element,managersList}) %>
+                        <% } %>
+                        <% }) %>
+                  </div>
+                  </div>
+                  
+                  <div class="" style="position: relative; left:10%; background-color: rgb(244, 242, 239); height: 100%; width: 80%;">
+                    <h1>Events Completed</h1>
+
+                    <div id="toys-container"
+                        class="d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                        <% eventsList.forEach(element=> { %>
+                          <% if (element.status) { %>
+                            <%- include('_registeredEvents1',{element}) %>
+                            <% } %>
+                            <% }) %>
+                      </div>
+                      </div>
+
+              </div>
+
+
+                    <% } else {%>
+                      
+                      <div style="position: relative; left: 40%; top: 50px; height: 400px; width: 300px;"> 
+                        <img style="height: 300px;"  src="\images\admin2.jpg" alt="" srcset="">
+                      </div>
+                      <%- include('_managerAddRemove') %>
+        
+                      <div class="main-div" style="width: 100%;">
+        
+                        <div class="" style="position: relative; top: 30%; left:10%; background-color: rgb(250, 251, 251); height: 100%; width: 80%;">
+                          <h1>All Managers</h1>
+        
+                          <div id="toys-container"
+                            class="d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                            <% managersList.forEach(element=> { %>
+                              <%- include('_managersList',{element}) %>
+                                <% }) %>
+                            </div>
+                        
+                                </div>
+        
+                      </div>
+                      <br>
+                      <br>
+        
+                      
+                      
+                      <div style="width: 100%;">
+                        
+                        <div class="" style="position: relative; top: 30%; left:10%; background-color: bisque; height: 100%; width: 80%;">
+                          <h1>Pending Events</h1>
+        
+                          <div id="toys-container"
+                            class="d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                            <% eventsList.forEach(element=> { %>
+                              <% if (!element.status) { %>
+                                <%- include('_registeredEvents',{element}) %>
+                                <% } %>
+                                <% }) %>
+                          </div>
+                          </div>
+                          
+                          <div class="" style="position: relative; left:10%; background-color: rgb(244, 242, 239); height: 100%; width: 80%;">
+                            <h1>Events Completed</h1>
+        
+                            <div id="toys-container"
+                                class="d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                                <% eventsList.forEach(element=> { %>
+                                  <% if (element.status) { %>
+                                    <%- include('_registeredEvents1',{element}) %>
+                                    <% } %>
+                                    <% }) %>
+                              </div>
+                              </div>
+        
+                      </div>
+                          <% } %>
+                            <!-- JavaScript Bundle with Popper -->
+                            <script
+                              src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                              integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                              crossorigin="anonymous">
+                              </script>
+                              <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+                              <!-- partial -->
+                                <script  src="./script.js"></script>
+</body>
+
+</html>

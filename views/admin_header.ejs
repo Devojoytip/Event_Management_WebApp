@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm  navbar-dark navcolor" style="background-color: black; width: 100%;">
+    <div class="container-fluid navcolor" style="background-color: black;">
+        <a class="navbar-brand" href="#">
+            <span class="text">Eventosh</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <% if (locals.user){ %>
+            <ul>
+
+                <a href="/admins/logout">
+                    <button class="btn btn-outline-success my-2 my-sm-0" style="position: relative; left: -20%; ">Logout</button>
+                </a>
+            </ul>
+
+            <% }else{ %>
+                <ul>
+                    <a href="/admins/logout">
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="position: relative; left: -20%; ">Logout</button>
+                    </a>
+                </ul>
+                <% } %>
+    </div>
+    
+</nav>

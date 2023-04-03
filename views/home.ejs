@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <!-- <link rel="stylesheet" href="/css/footer.css"> -->
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/intro.css">
+  <link rel='stylesheet' href='/css/https://codepen.io/P1N2O/pen/xxbjYqx.css'><link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+  <% let showUpdateBtn=true; %>
+    <% let showLastUpdated=false; %>
+      <%- include('header'); %>
+
+        <% if(locals.user) {%>
+          <%- include('_introSection',{title: 'Login Page' , loggedInUser:user,
+            org_user:user,showUpdateBtn,showLastUpdated}); %>
+            <% showUpdateBtn=true; %>
+              <% showLastUpdated=true; %>
+
+                <!-- <div style="margin: auto; width: 50%; margin-top: 1rem; padding: 1rem;">
+                  <img class="disp-img"
+                    src="https://hips.hearstapps.com/bpc.h-cdn.co/assets/17/08/1487711891-lego-toy-sets.jpg" alt=""
+                    style="height: 100%; width: 100%;">
+                </div> -->
+                <div 
+                  style=" height: auto; width: auto; display: flex; margin: 1rem; flex-wrap: wrap; gap: 1.5rem 1.5rem; padding: 2rem;">
+                  <h1 style="position: relative;left: 40%;">View Your Events : </h1>
+                  <% if(eventsList.length>0) {%>
+                    <div class="main-div">
+
+                      <div id="toys-container"
+                        class=" d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                        <% eventsList.forEach(element=> { %>
+                          <%- include('_yourEvents',{element}) %>
+                            <% }) %>
+                      </div>
+                      <% } %>
+
+                    </div>
+                    <h1 class="heading">
+                      
+                    </h1>
+
+
+                    <% } else {%>
+                      <div class="intro">
+                        <h1>Eventosh</h1>
+                        <p>We are a strong team specialised in event-management.</p>
+                        <button>Learn More</button>
+                      </div>
+
+                      <br>
+                      <br>
+                      <h1 class="heading">Our Packages</h1>
+                      <div class="card-group">
+                        <div class="card">
+                          <img class="card-img-top" style="position: relative; left: 20%; height: 300px; width: 300px;" src="\images\silver.png" alt="Card image cap">
+                          <div class="card-body">
+                            <p class="card-text" style="text-align: justify; font-weight:bold;" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora exercitationem cum debitis temporibus reprehenderit necessitatibus voluptate obcaecati dignissimos libero unde. Delectus, numquam. Obcaecati minima sed autem iusto molestiae! Eos ipsa unde minus quos labore, illo optio laudantium doloremque quis. Aliquam porro voluptatibus exercitationem ad laborum doloribus consequatur recusandae vero officia.</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <img class="card-img-top" style="position: relative; left: 20%; height: 300px; width: 300px;" src="\images\gold.png" alt="Card image cap">
+                          <div class="card-body">
+                            <p class="card-text" style="text-align: justify; font-weight:bold;" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora exercitationem cum debitis temporibus reprehenderit necessitatibus voluptate obcaecati dignissimos libero unde. Delectus, numquam. Obcaecati minima sed autem iusto molestiae! Eos ipsa unde minus quos labore, illo optio laudantium doloremque quis. Aliquam porro voluptatibus exercitationem ad laborum doloribus consequatur recusandae vero officia.</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <img class="card-img-top" style="position: relative; left: 20%; height: 300px; width: 300px;" src="\images\platinum.jpg" alt="Card image cap">
+                          <div class="card-body">
+                            <p class="card-text" style="text-align: justify; font-weight:bold;" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora exercitationem cum debitis temporibus reprehenderit necessitatibus voluptate obcaecati dignissimos libero unde. Delectus, numquam. Obcaecati minima sed autem iusto molestiae! Eos ipsa unde minus quos labore, illo optio laudantium doloremque quis. Aliquam porro voluptatibus exercitationem ad laborum doloribus consequatur recusandae vero officia.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <br>
+                      <h1 class="heading">
+                        Book your Events
+                      </h1>
+                      <div class=""
+                        style="height: auto; width: auto; display: flex; margin: 1rem; flex-wrap: wrap; gap: 1.5rem 1.5rem; padding: 2rem;">
+                        <div class="container">
+                          <img src="\images\p1.jpg" alt="Avatar" class="image" style="width:100%">
+                          <div class="middle">
+                            <a href="/events/birthday">
+                              <div class="text">Birthday Booking</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="container">
+                          <img src="\images\p2.jpg" alt="Avatar" class="image" style="width:100%">
+                          <div class="middle">
+                            <a href="/events/new-year">
+                              <div class="text">New Year Party Booking</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="container">
+                          <img src="\images\p3.jpg" alt="Avatar" class="image" style="width:100%">
+                          <div class="middle">
+                            <a href="/events/marriage">
+                              <div class="text">Marriage Booking</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="container">
+                          <img src="\images\p4.jpg" alt="Avatar" class="image" style="width:100%">
+                          <div class="middle">
+                            <a href="/events/anniversary">
+                              <div class="text">Marriage Anniversary Booking</div>
+                            </a>
+                          </div>
+                        </div>
+                        <% } %>
+                        <div class="" style="width: 5000px">
+                          <footer class="footer" style="width: 100%;">
+                            <div class="copy">&copy; 2022 Developer</div>
+                            <div class="bottom-links">
+                              <div class="links">
+                                <span>More Info</span>
+                                <a href="#">Home</a>
+                                <a href="#">About</a>
+                                <a href="#">Contact</a>
+                              </div>
+                              <div class="links">
+                                <span>Social Links</span>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                              </div>
+                            </div>
+                          </footer>
+                        </div>
+                        
+                            <!-- JavaScript Bundle with Popper -->
+                            <script
+                              src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                              integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                              crossorigin="anonymous">
+                              </script>
+                              <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+                              <!-- partial -->
+                                <script  src="./script.js"></script>
+</body>
+
+</html>
