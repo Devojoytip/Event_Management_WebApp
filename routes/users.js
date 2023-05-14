@@ -24,12 +24,14 @@ router.post('/create', usersController.create);
 
 router.post('/create-session',passport.authenticate(
     'local',
-    {failureRedirect: '/users/login'},
+    {
+        failureRedirect: '/users/login'
+    },
 ), usersController.createSession);
-router.get('/create-session',passport.authenticate(
-    'local',
-    {failureRedirect: '/users/login'},
-), usersController.createSession);
+// router.get('/create-session',passport.authenticate(
+//     'local',
+//     {failureRedirect: '/users/login'},
+// ), usersController.createSession);
 
 router.get('/logout',usersController.destroySession);
 

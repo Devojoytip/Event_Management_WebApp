@@ -204,9 +204,10 @@ module.exports.createSession = async (req, res) => {
     console.log(eventsList)
     req.user.eventsList = eventsList;
     // return res.redirect('/');
-    return res.render('home', {
+    return res.render('usersHome', {
         title: "Users Home Page",
-        eventsList: eventsList
+        eventsList: eventsList,
+        user:req.user
     });
 }
 

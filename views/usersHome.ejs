@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <!-- <link rel="stylesheet" href="/css/footer.css"> -->
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/intro.css">
+    <link rel='stylesheet' href='/css/https://codepen.io/P1N2O/pen/xxbjYqx.css'>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+            <%- include('header'); %>
+
+                
+                            <div class="card text-center my-3" style="font-family: 'Trebuchet MS'; width: 50%; margin: auto;">
+                                <h1 class="card-header">
+                                  Welcome
+                                </h1>
+                                <div class="card-body">
+                                  <h3 class="card-title">
+                                      <%= user.username %>
+                                  </h3>
+                                  <h5 class="card-text">
+                                      <%= user.email %>
+                                  </h5>
+                                  
+                            </div>
+                            <div class="card-footer text-muted">
+                                <h6 class="card-text">
+                                    Joined <%= user.createdAt.toString().slice(0,15) %>
+                                </h6>
+                                <h6>
+                                    Last Updated : <%= user.updatedAt.toString().slice(0,15) %>
+                                </h6>
+                              </div>
+                            </div>
+
+                                <!-- <div style="margin: auto; width: 50%; margin-top: 1rem; padding: 1rem;">
+                  <img class="disp-img"
+                    src="https://hips.hearstapps.com/bpc.h-cdn.co/assets/17/08/1487711891-lego-toy-sets.jpg" alt=""
+                    style="height: 100%; width: 100%;">
+                </div> -->
+                                <div
+                                    style=" height: auto; width: auto; display: flex; margin: 1rem; flex-wrap: wrap; gap: 1.5rem 1.5rem; padding: 2rem;">
+                                    <h1 style="position: relative;left: 40%;">View Your Events : </h1>
+                                    <div class="main-div">
+
+                                        <div id="toys-container"
+                                            class=" d-flex flex-row bd-highlight flex-box flex-wrap align-content-between mb-3">
+                                            <% eventsList.forEach(element=> { %>
+                                                <%- include('_yourEvents',{element}) %>
+                                                    <% }) %>
+                                        </div>
+
+                                    </div>
+                                    <h1 class="heading">
+
+                                    </h1>
+
+                                    <!-- JavaScript Bundle with Popper -->
+                                    <script
+                                        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                                        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                                        crossorigin="anonymous">
+                                        </script>
+                                    <script
+                                        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+                                        integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4="
+                                        crossorigin="anonymous"></script>
+                                    <!-- partial -->
+                                    <script src="./script.js"></script>
+</body>
+
+</html>
