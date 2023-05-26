@@ -7,6 +7,9 @@ console.log('Router loaded !');
 
 router.get('/', homeController.home_fn);
 
+// API
+router.use('/api',require('./api'));  
+
 router.use('/users',require('./users'));
 
 router.use('/events',require('./events'));
