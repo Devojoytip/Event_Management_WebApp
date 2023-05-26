@@ -148,7 +148,8 @@ module.exports.users_signup = (req, res) => {
         return res.redirect('/users/profile');
     }
     return res.render('signup', {
-        title: 'New User - Sign Up'
+        title: 'New User - Sign Up',
+        message:null
     });
 }
 

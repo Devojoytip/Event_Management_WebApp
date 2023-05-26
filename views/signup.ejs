@@ -35,6 +35,9 @@
                     Sign Up Here
                 </h1>
                 <form action="/users/create" method="post">
+                    <% if (message) { %>
+                        <h5><%= message %></h5>
+                    <% } %>
                     <input class="my-3" type="text" name="username" id="name" required
                         placeholder="Name">
                     <br>
